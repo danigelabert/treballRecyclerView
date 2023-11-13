@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">treballRecyclerView</string>
+    <string name="edat">Edat</string>
+    <string name="butoSuma">+</string>
+    <string name="seg_ent">Següent</string>
+    <string name="nom">Nom</string>
+</resources>
