@@ -4,4 +4,6 @@
     <string name="butoSuma">+</string>
     <string name="seg_ent">Següent</string>
     <string name="nom">Nom</string>
+    <string name="seg_ent_pantalla">Següent Pantalla</string>
+    <string name="btn_suma">+</string>
 </resources>

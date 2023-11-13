@@ -2,23 +2,24 @@ package com.danigelabert.treballrecyclerview
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.danigelabert.treballrecyclerview.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
     private val personasList = ArrayList<Persona>()
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        val btnAgregar = findViewById<Button>(R.id.btnAgregar)
-        val btnSiguiente = findViewById<Button>(R.id.btnSiguiente)
-        val edtNombre = findViewById<EditText>(R.id.edtNombre)
-        val edtEdad = findViewById<EditText>(R.id.edtEdad)
+        val btnAgregar = binding.btnAgregar
+        val btnSiguiente = binding.btnSiguiente
+        val edtNombre = binding.edtNombre
+        val edtEdad = binding.edtEdad
 
         btnAgregar.setOnClickListener {
             val nombre = edtNombre.text.toString()
@@ -26,11 +27,11 @@ class MainActivity : AppCompatActivity() {
 
             if (nombre.isNotEmpty() && edad.isNotEmpty()) {
                 personasList.add(Persona(nombre, edad))
-                Toast.makeText(this, "Persona agregada", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Persona afegida", Toast.LENGTH_SHORT).show()
                 edtNombre.text.clear()
                 edtEdad.text.clear()
             } else {
-                Toast.makeText(this, "Por favor, completa ambos campos", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Sisplau, completa els dos camps", Toast.LENGTH_SHORT).show()
             }
         }
 

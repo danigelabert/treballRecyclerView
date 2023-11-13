@@ -3,27 +3,25 @@ package com.danigelabert.treballrecyclerview
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.danigelabert.treballrecyclerview.adapter.PersonasAdapter
+import com.danigelabert.treballrecyclerview.databinding.ActivityPersonasBinding
 
 class PersonasActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityPersonasBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_personas)
+        binding = ActivityPersonasBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
+        val recyclerView = binding.recyclerView
 
-        // Obtener la lista de personas de la intent
         val personasList: ArrayList<Persona>? =
             intent.getParcelableArrayListExtra("personasList")
 
-        // Verificar si la lista no es nula antes de crear el adaptador
         if (personasList != null) {
-            // Crear el adaptador
             val adapter = PersonasAdapter(personasList)
 
-            // Configurar el RecyclerView
             recyclerView.layoutManager = LinearLayoutManager(this)
             recyclerView.adapter = adapter
         }
